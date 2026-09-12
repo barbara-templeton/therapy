@@ -14,6 +14,22 @@
 
 <link href="css/bootstrap.min.css" rel="stylesheet">
 
+        <script type="text/javascript">
+    fetch('data.json')
+  .then(response => response.json())
+  .then(data => {
+    document.getElementById('consultationMinutes').textContent =
+      data.consultationMinutes;
+
+    document.getElementById('individualPrice').textContent =
+      data.individualPrice;
+
+    document.getElementById('couplesPrice').textContent =
+      data.couplesPrice;
+  })
+  .catch(error => console.error('Error loading site data:', error));
+  </script> 
+    
     <style>
       .bd-placeholder-img {
         font-size: 1.125rem;
@@ -354,22 +370,6 @@ Couples sessions are $<span id="couplesPrice"></span> for 60 minutes.
 </main>
 
 <script src="js/bootstrap.bundle.min.js"></script>
-    
-    
-    <script type="text/javascript">
-    fetch('data.json')
-  .then(response => response.json())
-  .then(data => {
-    document.getElementById('consultationMinutes').textContent =
-      data.consultationMinutes;
-
-    document.getElementById('individualPrice').textContent =
-      data.individualPrice;
-
-    document.getElementById('couplesPrice').textContent =
-      data.couplesPrice;
-  })
-  .catch(error => console.error('Error loading site data:', error));
-  </script>  
+     
   </body>
 </html>
