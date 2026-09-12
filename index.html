@@ -317,10 +317,10 @@ The Trauma Resiliency Model (TRM) is an innovative therapeutic approach for trau
         <p class="lead">
 Our work together is a private matter, which is why I operate on a private-pay basis. In some cases, it may be possible to submit for out-of-network reimbursement. If that option is available to you, I’ll gladly support you in determining your eligibility and assist you with the necessary paperwork.</p>
 <p class="lead">
-Individual client sessions are $200 for 60 minutes.
+Individual client sessions are $<span id="individualPrice"></span> for 60 minutes.
 </p>
 <p class="lead">
-Couples sessions are $250 for 60 minutes.
+Couples sessions are $<span id="couplesPrice"></span> for 60 minutes.
 </p>        
       </div>
       <div class="col-md-5 order-md-1">
@@ -336,7 +336,7 @@ Couples sessions are $250 for 60 minutes.
         <p></p>
           <h4 class="text-muted">Call or Text: (949) 338-3793</h4>
           <p></p>
-        <p class="lead">  Call now for a FREE 20 minute consultation to see how I can help you.
+        <p class="lead">  Call now for a FREE <span id="consultationMinutes"></span> minute consultation to see how I can help you.
   Or you can email me at breathingyoga@gmail.com and I will reply to you as soon as I can.</p>
       </div>
 
@@ -353,7 +353,23 @@ Couples sessions are $250 for 60 minutes.
   </footer>
 </main>
 
-    <script src="js/bootstrap.bundle.min.js"></script>
-      
+<script src="js/bootstrap.bundle.min.js"></script>
+    
+    
+    <script type="text/javascript">
+    fetch('data.json')
+  .then(response => response.json())
+  .then(data => {
+    document.getElementById('consultationMinutes').textContent =
+      data.consultationMinutes;
+
+    document.getElementById('individualPrice').textContent =
+      data.individualPrice;
+
+    document.getElementById('couplesPrice').textContent =
+      data.couplesPrice;
+  })
+  .catch(error => console.error('Error loading site data:', error));
+  </script>  
   </body>
 </html>
