@@ -1,5 +1,12 @@
 {
-  "consultationMinutes": 20,
-  "individualPrice": 200,
-  "couplesPrice": 250
+  "consultation": {
+    "minutes": 20
+  },
+  "pricing": {
+    "individual": 200,
+    "couples": 250
+  },
+  "appointments": {
+    "something": "..."
+  }
 }
